@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ExtensionCard from "./ExtensionCard"; 
 import data from "./data.json";
-const Body = () => {
+const Body = ({theme, toggleThemeFunc}) => {
     const [allFilter, setAllFilter] = useState("yes");
     const [activeFilter, setActiveFilter] = useState("no");
     const [inactiveFilter, setInactiveFilter] = useState("no");
@@ -33,19 +33,35 @@ const Body = () => {
         return true;
     })
 
+
     return (
-        <div className="Body">
+        <div className={`Body ${theme}`}>
             <div className="Body-head ">
                 <div className="Body-head-left">Extensions List</div>
-                <ul className="Body-head-right ">
+                <ul className={`Body-head-right ${theme}`}>
                     <li >
-                        <input onChange={(e) => {
+                        <input className={`searchInput ${theme}`}
+                         onChange={(e) => {
                             setSearchText(e.target.value);
                         }}
-                        style={{color:"white",background:"rgb(40, 59, 85)",padding:".3rem .6rem",border:"none", borderRadius:".5rem",
-                            marginRight:".5rem", fontWeight:"bold"
+
+                        onKeyDown={(e) => {
+                            if(e.key === "Enter"){
+                                const searchData = cardsData.filter((card) => {
+                                    return card.name.toLowerCase().includes(searchText.toLowerCase());
+                                })
+
+                            setCardsData(searchData);
+                            setAllFilter("no");
+                            setActiveFilter("no");
+                            setInactiveFilter("no");
+                            }
+
                         }}
-                         placeholder="search for extentions..." />
+
+                        style={{padding:".3rem .6rem",border:"none",borderRadius:".5rem",marginRight:".5rem",fontWeight:"bold",background: theme === "light" ? "#ffffff" 
+                            : "#2c3e50" }}
+                        placeholder="search for extentions..." />
                         <i
                         onClick={() => {
                             const searchData = cardsData.filter((card) => {
@@ -69,7 +85,8 @@ const Body = () => {
                             setCardsData(data);
                         
                     }}
-                     style={{background:allFilter === "yes" ? "rgb(255, 0, 0)" : "rgb(40, 59, 85)"}}>All</li>
+                     style={{background:allFilter === "yes" ? "rgb(255, 0, 0)" 
+                     : `${theme === "light" ? "#ffffff" : "rgb(40, 59, 85)" }`}}>All</li>
 
                     <li onClick={() => {
                             
@@ -82,7 +99,8 @@ const Body = () => {
                             setFilterTab("Active");
                             setCardsData(data);
                         
-                    }} style={{background:activeFilter === "yes" ? "rgb(255, 0, 0)" : "rgb(40, 59, 85)" }}>Active</li>
+                    }} style={{background:activeFilter === "yes" ? "rgb(255, 0, 0)" 
+                     : `${theme === "light" ? "#ffffff" : "rgb(40, 59, 85)" }`}}>Active</li>
 
                     <li onClick={() => {
                             // const filter = data.filter((card) => {
@@ -95,20 +113,27 @@ const Body = () => {
                             setFilterTab("Inactive");
                             setCardsData(data);
 
-                    }} style={{background:inactiveFilter === "yes" ? "rgb(255, 0, 0)" : "rgb(40, 59, 85)" }}>Inactive</li>
+                    }} style={{background:inactiveFilter === "yes" ? "rgb(255, 0, 0)" 
+                     : `${theme === "light" ? "#ffffff" : "rgb(40, 59, 85)" }`}}>Inactive</li>
                 </ul>
             </div>
-            <div className="Cards-container">
-                {filteredData.map((card) => {
-                    return (
+            <div className={filteredData.length === 0 ? "" : "Cards-container"}>
+                { filteredData.length === 0 ? (
+                     <h1 style={{textAlign:"center",marginTop:"3rem"}}>No such Extension!</h1>
+                     
+                ) : 
+                (filteredData.map((card) => 
+                    (
                     <ExtensionCard
                     key = {card.name}
                     cardData = {card}
                     hasToggled = {handleToggle}
                     removeButton = {handleRemoveButton}
+                    themeColor = {theme}
                     />  
                     )  
-                })}
+                ))
+                }
                 
             </div>
         </div>

@@ -1,9 +1,11 @@
 
 const ExtensionCard = (props) => {
-    const {cardData, hasToggled, removeButton} = props;
+    const {cardData, hasToggled, removeButton, themeColor} = props;
     const {logo, name, description, isActive} = cardData;
     return (
-        <div className="Card backgroundColor">
+        <div className={`Card ${themeColor}`}
+         style={{background:themeColor === "light" ? "#ffffff" 
+            : "#2c3e50"}}>
             <div className="Card-top">
                     <div className="card-img">
                         
@@ -15,7 +17,10 @@ const ExtensionCard = (props) => {
                     </div>
                 </div>
                 <div className="card-bottom">
-                    <button onClick={() => removeButton(name)} className="card-botton-left">Remove</button>
+                    <button 
+                    style={{background:"none"}}
+                     onClick={() => removeButton(name)} 
+                     className={`card-botton-left ${themeColor} ${themeColor === "light" ? "removeBtnLight" : "removeBtnDark"} `}>Remove</button>
                     <div onClick={() => hasToggled(name) }
                      className ={` toggle1 ${isActive ? "bg-orange" : "bg-gray"} `} style={{display:"inline-flex",marginLeft:"10rem"}}>
 
