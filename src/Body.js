@@ -1,6 +1,8 @@
 import { useState } from "react";
 import ExtensionCard from "./ExtensionCard"; 
 import data from "./data.json";
+import "./index.css";
+
 const Body = ({theme, toggleThemeFunc}) => {
     const [allFilter, setAllFilter] = useState("yes");
     const [activeFilter, setActiveFilter] = useState("no");
@@ -38,8 +40,9 @@ const Body = ({theme, toggleThemeFunc}) => {
         <div className={`Body ${theme}`}>
             <div className="Body-head ">
                 <div className="Body-head-left">Extensions List</div>
-                <ul className={`Body-head-right ${theme}`}>
-                    <li >
+                    <div className="Body-head-right-parent" style={{display: "flex",marginTop:".7rem"}}>
+                    <div className="search-container"
+                    style={{display:"flex", alignItems:"center", justifyContent:"space-between",marginRight:"8rem"}}>
                         <input className={`searchInput ${theme}`}
                          onChange={(e) => {
                             setSearchText(e.target.value);
@@ -74,8 +77,10 @@ const Body = ({theme, toggleThemeFunc}) => {
                             setInactiveFilter("no");
                         }} 
                         style={{marginRight:".6rem"}} className="fa-solid fa-magnifying-glass"> </i>
-                    </li>
+                    </div>
 
+                    <ul className={`Body-head-right ${theme}`}
+                    style={{display:"flex"}}>
                     <li onClick={() => {
 
                             setAllFilter("yes");
@@ -115,7 +120,9 @@ const Body = ({theme, toggleThemeFunc}) => {
 
                     }} style={{background:inactiveFilter === "yes" ? "rgb(255, 0, 0)" 
                      : `${theme === "light" ? "#ffffff" : "rgb(40, 59, 85)" }`}}>Inactive</li>
+                     
                 </ul>
+            </div>
             </div>
             <div className={filteredData.length === 0 ? "" : "Cards-container"}>
                 { filteredData.length === 0 ? (

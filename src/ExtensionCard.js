@@ -5,7 +5,7 @@ const ExtensionCard = (props) => {
     return (
         <div className={`Card ${themeColor}`}
          style={{background:themeColor === "light" ? "#ffffff" 
-            : "#2c3e50"}}>
+            : "#2c3e50",position:"relative"}}>
             <div className="Card-top">
                     <div className="card-img">
                         
@@ -16,13 +16,17 @@ const ExtensionCard = (props) => {
                         <div className="card-head-description">{description}</div>
                     </div>
                 </div>
-                <div className="card-bottom">
+                <div style={{alignItems:"center",display:"flex", justifyContent:"space-between"}}
+                 className="card-bottom">
                     <button 
-                    style={{background:"none"}}
+                    style={{background:"none",display:"block"}}
                      onClick={() => removeButton(name)} 
-                     className={`card-botton-left ${themeColor} ${themeColor === "light" ? "removeBtnLight" : "removeBtnDark"} `}>Remove</button>
+                     className={`card-botton-left ${themeColor} ${themeColor === "light" ? "removeBtnLight" : "removeBtnDark"} `}>
+                        Remove
+                        </button>
+                    
                     <div onClick={() => hasToggled(name) }
-                     className ={` toggle1 ${isActive ? "bg-orange" : "bg-gray"} `} style={{display:"inline-flex",marginLeft:"10rem"}}>
+                     className ={` toggle1 ${isActive ? "bg-orange" : "bg-gray"} `}>
 
                         <div className={`toggle2 ${isActive ? "translate-x-5" : ""}`}></div>
 
