@@ -87,7 +87,7 @@ const Body = ({theme, toggleThemeFunc}) => {
                             setActiveFilter("no");
                             setInactiveFilter("no");
                             setFilterTab("All");
-                            setCardsData(data);
+                            // setCardsData(data);
                         
                     }}
                      style={{background:allFilter === "yes" ? "rgb(255, 0, 0)" 
@@ -102,7 +102,7 @@ const Body = ({theme, toggleThemeFunc}) => {
                             setAllFilter("no");
                             setInactiveFilter("no");
                             setFilterTab("Active");
-                            setCardsData(data);
+                            // setCardsData(data);
                         
                     }} style={{background:activeFilter === "yes" ? "rgb(255, 0, 0)" 
                      : `${theme === "light" ? "#ffffff" : "rgb(40, 59, 85)" }`}}>Active</li>
@@ -116,7 +116,7 @@ const Body = ({theme, toggleThemeFunc}) => {
                             setAllFilter("no");
                             setActiveFilter("no");
                             setFilterTab("Inactive");
-                            setCardsData(data);
+                            // setCardsData(data);
 
                     }} style={{background:inactiveFilter === "yes" ? "rgb(255, 0, 0)" 
                      : `${theme === "light" ? "#ffffff" : "rgb(40, 59, 85)" }`}}>Inactive</li>
