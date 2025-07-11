@@ -4,12 +4,13 @@ const Header = ({theme, toggleThemeFunc}) => {
     
 
     return (
-        <div className={`header-head ${theme === "light" ? "backgroundColorLight" : ".backgroundColorDark"} ${theme}`}>
-            <img src="/assets/images/logo.svg" />
+        <div className={`header-head ${theme === "light" ? "backgroundColorLight" : "backgroundColorDark"} ${theme}`}>
+            <img className="extension-logo" src={process.env.PUBLIC_URL +"/assets/images/logo.svg"} />
             <div onClick={() => toggleThemeFunc()}
-             className= {`icon-sun-container
-            ${theme === "light" ? "backgroundColorLight" : ".backgroundColorDark"} ${theme}`} >
-                <img src="/assets/images/icon-sun.svg" />
+             className= {`icon-sun-container  ${theme}`} >
+                <img className="theme-logo" src={theme === "dark" ? process.env.PUBLIC_URL +"/assets/images/icon-sun.svg" :
+                    process.env.PUBLIC_URL + "/assets/images/icon-moon.svg"
+                 } />
             </div>
         </div>
         

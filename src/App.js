@@ -9,10 +9,10 @@ const [isLightTheme, setIsLightTheme] = useState(false);
     useEffect(() => {
 
     if (isLightTheme) {
-      document.body.style.backgroundColor = "#f0f4ff";
+      document.body.style.background = "linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%)";
       document.body.style.color = "black";
     } else {
-      document.body.style.backgroundColor = "#0f1124";
+      document.body.style.background = "linear-gradient(180deg, #040918 0%, #091540 100%)";
       document.body.style.color = "white";
     }
   }, [isLightTheme]);

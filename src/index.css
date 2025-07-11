@@ -7,11 +7,15 @@ body {
 .header-head{
   display: flex;
   width: 85%;
-  background-color: rgb(78, 95, 128);
-  margin: 2rem auto;
+  background-color: rgb(47, 54, 75);
+  margin: 1.5rem auto;
   border-radius: .5rem;
   justify-content: space-between;
   padding: .5rem;
+}
+
+.extension-logo{
+  width: 160px;
 }
 
 .icon-sun-container{
@@ -19,8 +23,12 @@ body {
   align-items: center;
   border-radius: .5rem;
   padding: .6rem;
-  background-color: #0f1124;
+  background-color: rgb(33, 44, 76);
   transition: outline 0.2s, border 0.2s;
+}
+
+.theme-logo{
+  width: 18px;
 }
 
 .icon-sun-container:hover{
@@ -46,8 +54,9 @@ body {
 }
 
 .Body-head-left{
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin-right: 3rem;
+  font-weight: bold;
 }
 
 .Body-head-right{
@@ -94,10 +103,10 @@ body {
 
 
 .Card{
-  background-color: gray;
+  background-color: hsl(226, 25%, 17%);
   border-radius: 1rem;
   padding: 1rem 1rem 1rem 1rem;
-  border: 1px solid white;
+  border: 1px solid hsl(0, 0%, 78%);
   /* min-width: 100px; */
   align-items: stretch;
   display: flex;
@@ -121,6 +130,7 @@ body {
 
 .card-details{
   width: 80%;
+  margin-left: 4px;
   
 }
 
@@ -128,6 +138,7 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: .5rem;
+  color: hsl(0, 0%, 93%);
 }
 
 .card-head-description{
@@ -141,6 +152,7 @@ body {
 
 .card-botton-left{
   padding: .5rem .8rem;
+  border: 1px solid hsl(0, 0%, 78%);
   border-radius: 1rem;
   background:none;
   transition: outline 0.2s, border 0.2s;
@@ -182,10 +194,16 @@ body {
   padding: 0 0 0 0.25rem;
   cursor: pointer;
   transition:0.3s ease;
+  transition: outline 0.2s, border 0.2s;
+}
+
+.toggle1:focus{
+  outline: 2px solid #ff4f4f;
+  outline-offset: 2px; 
 }
 
 .bg-orange{
-  background-color: rgb(255, 0, 0);
+  background-color: hsl(3, 86%, 64%);
 }
 
 .bg-gray{
@@ -206,6 +224,14 @@ body {
   transform: translateX(1.25rem);
 }
 
+.lightThemeTextColor{
+  color: hsl(226, 25%, 17%);
+}
+
+.darkThemeTextColor{
+  color:white ;
+}
+
 /* Dark Theme */
 .dark {
   background-color: "#2c3e50";
@@ -213,17 +239,25 @@ body {
 }
 
 .backgroundColorDark {
-  background-color: "#2c3e50";
+  background-color: "hsl(226, 25%, 17%)";
 }
 
 /* Light Theme */
 .light {
   background-color: #f0f4ff;
-  color: black;
+  color: hsl(226, 25%, 17%);
 }
 
 .backgroundColorLight {
   background-color: #ffffff;
+}
+
+.textColorLight{
+ color: "hsl(225, 23%, 24%)";
+}
+
+.textColorDark{
+ color: "hsl(0, 0%, 93%)";
 }
 
 
@@ -243,6 +277,10 @@ body {
 }
 
 @media (max-width: 706px){
+
+  .header-head{
+    margin-top: 1rem;
+  }
   .Cards-container{
     grid-template-columns: repeat(2,1fr);
   }
@@ -304,4 +342,75 @@ body {
         width: 9px;
     }
 
+    .extension-logo{
+      width: 120px;
+    }
+
+    .header-head{
+      padding: .2rem .3rem;
+    }
+
+    .theme-logo{
+      width: 13px;
+    }
+
+    .icon-sun-container{
+      padding: .4rem;
+    }
+
 }
+
+@media (max-width: 424px){
+  .header-head{
+    width: 95%;
+  }
+
+  .Body{
+    width: 95%;
+  }
+
+  .Cards-container{
+    gap: 1rem;
+  }
+
+  .search-container input{
+    font-size: .65rem;
+  }
+
+  .search-container i{
+    font-size: .65rem;
+  }
+
+  
+  .Body-head-right li{
+    font-size: .7rem;
+  }
+}
+
+@media (max-width: 365px){
+
+  .header-head{
+    width: 98%;
+  }
+
+  .Body{
+    width: 98%;
+  }
+
+  .Cards-container{
+   column-gap: .5rem;
+  }
+
+  .search-container input{
+    font-size: .65rem;
+  }
+
+  .search-container i{
+    font-size: .65rem;
+  }
+
+  .Body-head-right li{
+    font-size: .7rem;
+  }
+}
+

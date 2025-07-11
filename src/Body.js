@@ -18,7 +18,7 @@ const Body = ({theme, toggleThemeFunc}) => {
         return card.name === name ? {...card, isActive:!card.isActive} : card;
         });
         
-        setCardsData(updated);
+        setCardsData(updated);    
     }
 
     const handleRemoveButton = (name) => {
@@ -39,7 +39,8 @@ const Body = ({theme, toggleThemeFunc}) => {
     return (
         <div className={`Body ${theme}`}>
             <div className="Body-head ">
-                <div className="Body-head-left">Extensions List</div>
+                <div className="Body-head-left"
+                style={{color: theme === "light" ? "hsl(225, 23%, 24%)" : "hsl(0, 0%, 93%)"}}>Extensions List</div>
                     <div className="Body-head-right-parent" style={{display: "flex",marginTop:".7rem"}}>
                     <div className="search-container"
                     style={{display:"flex", alignItems:"center", justifyContent:"space-between",marginRight:"8rem"}}>
@@ -63,7 +64,7 @@ const Body = ({theme, toggleThemeFunc}) => {
                         }}
 
                         style={{padding:".3rem .6rem",border:"none",borderRadius:".5rem",marginRight:".5rem",fontWeight:"bold",background: theme === "light" ? "#ffffff" 
-                            : "#2c3e50" }}
+                            : "hsl(225, 23%, 24%)" }}
                         placeholder="search for extentions..." />
                         <i
                         onClick={() => {
@@ -90,8 +91,10 @@ const Body = ({theme, toggleThemeFunc}) => {
                             // setCardsData(data);
                         
                     }}
-                     style={{background:allFilter === "yes" ? "rgb(255, 0, 0)" 
-                     : `${theme === "light" ? "#ffffff" : "rgb(40, 59, 85)" }`}}>All</li>
+                     style={{background:allFilter === "yes" ? "hsl(3, 86%, 64%)" 
+                     : `${theme === "light" ? "#ffffff" : "rgb(40, 59, 85)" }`,
+                     color:allFilter === "yes" ? `${theme === "light" ? "#ffffff" : "hsl(227, 75%, 14%)"  }`:
+                     `${theme === "light" ? "hsl(227, 75%, 14%)" : "hsl(217, 61%, 90%)" }`  }}>All</li>
 
                     <li onClick={() => {
                             
@@ -104,8 +107,10 @@ const Body = ({theme, toggleThemeFunc}) => {
                             setFilterTab("Active");
                             // setCardsData(data);
                         
-                    }} style={{background:activeFilter === "yes" ? "rgb(255, 0, 0)" 
-                     : `${theme === "light" ? "#ffffff" : "rgb(40, 59, 85)" }`}}>Active</li>
+                    }} style={{background:activeFilter === "yes" ? "hsl(3, 86%, 64%)" 
+                     : `${theme === "light" ? "#ffffff" : "rgb(40, 59, 85)" }`,
+                     color:activeFilter === "yes" ? `${theme === "light" ? "#ffffff" : "hsl(227, 75%, 14%)" }`:
+                     `${theme === "light" ? "hsl(227, 75%, 14%)" : "hsl(217, 61%, 90%)" }`}}>Active</li>
 
                     <li onClick={() => {
                             // const filter = data.filter((card) => {
@@ -118,8 +123,10 @@ const Body = ({theme, toggleThemeFunc}) => {
                             setFilterTab("Inactive");
                             // setCardsData(data);
 
-                    }} style={{background:inactiveFilter === "yes" ? "rgb(255, 0, 0)" 
-                     : `${theme === "light" ? "#ffffff" : "rgb(40, 59, 85)" }`}}>Inactive</li>
+                    }} style={{background:inactiveFilter === "yes" ? "hsl(3, 86%, 64%)" 
+                     : `${theme === "light" ? "#ffffff" : "rgb(40, 59, 85)" }`,
+                     color:inactiveFilter === "yes" ? `${theme === "light" ? "#ffffff" : "hsl(227, 75%, 14%)" }`:
+                     `${theme === "light" ? "hsl(227, 75%, 14%)" : "hsl(217, 61%, 90%)" }`}}>Inactive</li>
                      
                 </ul>
             </div>

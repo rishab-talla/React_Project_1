@@ -5,21 +5,25 @@ const ExtensionCard = (props) => {
     return (
         <div className={`Card ${themeColor}`}
          style={{background:themeColor === "light" ? "#ffffff" 
-            : "#2c3e50",position:"relative"}}>
+            : "hsl(225, 23%, 24%)",position:"relative",
+            color:themeColor === "light" ? "hsl(227, 75%, 14%)" : "hsl(0, 0%, 93%)"}}>
             <div className="Card-top">
                     <div className="card-img">
                         
-                        <img src={logo} />
+                        <img src={process.env.PUBLIC_URL + logo} alt="Extension-img" />
                     </div>
                     <div className="card-details">
-                        <div className="card-head-head">{name}</div>
-                        <div className="card-head-description">{description}</div>
+                        <div className="card-head-head" 
+                        style={{color: themeColor === "light" ? "hsl(225, 23%, 24%)" : "hsl(0, 0%, 93%)"}}>{name}</div>
+                        <div className="card-head-description"
+                        style={{color: themeColor === "light" ? "hsl(225, 23%, 24%)" : "hsl(0, 0%, 93%)"}}>{description}</div>
                     </div>
                 </div>
                 <div style={{alignItems:"center",display:"flex", justifyContent:"space-between"}}
                  className="card-bottom">
                     <button 
-                    style={{background:"none",display:"block"}}
+                    style={{background:"none",display:"block",
+                        border:`1px solid ${themeColor === "light" ? "hsl(225, 23%, 24%)" : " hsl(0, 0%, 78%)"}`, color: themeColor === "light" ? "hsl(225, 23%, 24%)" : "hsl(0, 0%, 93%)"}}
                      onClick={() => removeButton(name)} 
                      className={`card-botton-left ${themeColor} ${themeColor === "light" ? "removeBtnLight" : "removeBtnDark"} `}>
                         Remove
