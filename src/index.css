@@ -260,6 +260,9 @@ body {
  color: "hsl(0, 0%, 93%)";
 }
 
+.empty-search-list{
+  font-size: 1.6rem;
+}
 
 @media (max-width: 1079px) {
   /* .Cards-container{
@@ -269,7 +272,7 @@ body {
    .Body-head{
     display: flex;
     flex-wrap: wrap;
-   }
+   }  
 
    .Body-head-right{
     padding-left: 0;
@@ -277,6 +280,10 @@ body {
 }
 
 @media (max-width: 706px){
+
+  .empty-search-list{
+  font-size: 1.2rem;
+}
 
   .header-head{
     margin-top: 1rem;
@@ -361,6 +368,10 @@ body {
 }
 
 @media (max-width: 424px){
+
+  .empty-search-list{
+  font-size: 1.1rem;
+}
   .header-head{
     width: 95%;
   }
@@ -388,6 +399,10 @@ body {
 }
 
 @media (max-width: 365px){
+
+  .empty-search-list{
+  font-size: 1rem;
+}
 
   .header-head{
     width: 98%;

@@ -133,7 +133,8 @@ const Body = ({theme, toggleThemeFunc}) => {
             </div>
             <div className={filteredData.length === 0 ? "" : "Cards-container"}>
                 { filteredData.length === 0 ? (
-                     <h1 style={{textAlign:"center",marginTop:"3rem"}}>No such Extension!</h1>
+                     <h2 className="empty-search-list"
+                      style={{textAlign:"center",marginTop:"3rem"}}>No such Extension!</h2>
                      
                 ) : 
                 (filteredData.map((card) => 
